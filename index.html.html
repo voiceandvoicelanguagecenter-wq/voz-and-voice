@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voz &amp; Voice Language Center — Voz &amp; Voice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FFFBF5;
+      --surface: #FFFFFF;
+      --surface-soft: #FDF5E8;
+      --ink: #1C2331;
+      --ink-muted: #525E75;
+      --primary: #a90303;
+      --primary-hover: #231dc8;
+      --primary-soft: #FFEADF;
+      --secondary: #0F766E;
+      --secondary-soft: #E0F5F2;
+      --accent-gold: #000000;
+      --border: #0b0b0a;
+      --radius-lg: 22px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow-sm: 0 4px 16px rgba(28, 35, 49, 0.05);
+      --shadow-md: 0 12px 32px rgba(28, 35, 49, 0.08);
+      --max-w: 1140px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Fraunces', Georgia, serif;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 251, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 74px;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #0f0bf5);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 6px 14px rgba(224, 90, 43, 0.25);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-short {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .brand-full {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--ink-muted);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 3px 10px rgba(224, 90, 43, 0.28);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      transition: transform 0.18s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 8px 20px rgba(224, 90, 43, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--secondary-soft);
+      color: var(--secondary);
+      border: 1px solid rgba(15, 118, 110, 0.22);
+    }
+
+    .btn-secondary:hover {
+      background: #CBECE7;
+    }
+
+    .hero {
+      padding: 58px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--secondary-soft);
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--ink-muted);
+      margin-bottom: 24px;
+      max-width: 60ch;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .mode-helper-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card-title {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .hero-highlights {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero-highlights li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.94rem;
+      color: var(--ink-muted);
+    }
+
+    .dot-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .free-banner {
+      background: linear-gradient(120deg, #E0F5F2, #FFF3E0);
+      border: 1px solid #C7E8E2;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    section {
+      padding: 54px 0;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+      max-width: 68ch;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.65rem, 3vw, 2.3rem);
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .section-header p {
+      color: var(--ink-muted);
+      font-size: 1rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .benefit-card p {
+      color: var(--ink-muted);
+      font-size: 0.94rem;
+    }
+
+    .gradual-strip {
+      margin-top: 22px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      display: grid;
+      gap: 8px;
+      font-size: 0.93rem;
+    }
+
+    .level-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .level-tab {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      padding: 11px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: all 0.2s ease;
+    }
+
+    .level-tab.active {
+      background: var(--secondary);
+      border-color: var(--secondary);
+      color: #FFFFFF;
+      box-shadow: 0 6px 16px rgba(15, 118, 110, 0.22);
+    }
+
+    .syllabus-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .syllabus-top {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 22px;
+    }
+
+    .syllabus-top h3 {
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      color: var(--ink);
+    }
+
+    .syllabus-sub {
+      color: var(--ink-muted);
+      font-size: 1rem;
+    }
+
+    .meta-bar {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .meta-chip {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.84rem;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .syllabus-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .sub-panel {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .sub-panel h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .clean-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .clean-list li {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .clean-list li::before {
+      content: "•";
+      color: var(--primary);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    .clean-list strong {
+      color: var(--ink);
+    }
+
+    .vocab-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+
+    .vocab-box h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .vocab-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.88rem;
+    }
+
+    .vocab-item strong {
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 4px;
+    }
+
+    .vocab-item span {
+      color: var(--ink-muted);
+    }
+
+    .syllabus-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .pricing-note {
+      background: var(--secondary-soft);
+      border: 1px solid #BFE6E0;
+      color: var(--ink);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 22px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .price-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .price-duration {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      margin-bottom: 14px;
+    }
+
+    .rate-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .rate-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary);
+      letter-spacing: 0.04em;
+    }
+
+    .rate-main {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 2px;
+    }
+
+    .rate-sub {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+    }
+
+    .free-tag {
+      display: inline-block;
+      margin-top: 6px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-form-card,
+    .contact-info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: #FFFFFF;
+    }
+
+    .form-feedback {
+      margin-top: 16px;
+      background: var(--surface-soft);
+      border: 1.5px solid var(--secondary);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: var(--ink);
+      font-size: 0.92rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 0.92rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .contact-item a {
+      color: var(--secondary);
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+      margin-top: 32px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-meta {
+      font-size: 0.86rem;
+      color: var(--ink-muted);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .syllabus-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+
+    .brand-img {
+      height: 120px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a href="#top" class="brand-logo" aria-label="Voz & Voice Language Center">
+        <img src="c:\Users\amner\Desktop\voz&voice\Logo Vand V.jpg" alt="Voz & Voice" class="brand-img" />
+        <span class="brand-text">
+          <span class="brand-short">Voz &amp; Voice</span>
+          <span class="brand-full">Voz &amp; Voice Language Center</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#why-speaking" id="navWhy"></a>
+        <a href="#syllabus" id="navSyllabus"></a>
+        <a href="#pricing" id="navPricing"></a>
+        <a href="#contact" id="navContact"></a>
+        <a href="#methodology" id="navMethodology"></a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switcher" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn" id="btnES" onclick="setLanguage('es')">ES</button>
+          <button type="button" class="lang-btn active" id="btnEN" onclick="setLanguage('en')">EN</button>
+        </div>
+        <a href="#contact" class="btn btn-primary" id="navCtaBtn"></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill-badge" id="heroBadge"></div>
+          <h1 id="heroTitle"></h1>
+          <p class="hero-lead" id="heroSubtitle"></p>
+
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary" id="heroPrimaryCta"></a>
+            <a href="#syllabus" class="btn btn-secondary" id="heroSecondaryCta"></a>
+          </div>
+
+          <div class="mode-helper-box" id="modeHelperBox"></div>
+        </div>
+
+        <aside class="hero-card">
+          <h2 class="hero-card-title" id="heroCardTitle"></h2>
+          <ul class="hero-highlights" id="heroHighlights"></ul>
+          <div class="free-banner" id="heroFreeBanner"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="why-speaking">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" id="whyTag"></span>
+          <h2 id="whyTitle"></h2>
+          <p id="whyDesc"></p>
+        </div>
+
+        <div class="benefits-grid" id="benefitsGrid"></div>
+        <div class="gradual-strip" id="gradualStrip" style="display: none;"></div>
+      </div>
+    </section>
+
+    <section id="syllabus">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" id="syllabusTag"></span>
+          <h2 id="syllabusTitle"></h2>
+          <p id="syllabusDesc"></p>
+        </div>
+
+        <div class="level-tabs" role="tablist" aria-label="Course levels">
+          <button type="button" class="level-tab active" id="tab-a1a2" onclick="selectLevel('a1a2')">A1–A2</button>
+          <button type="button" class="level-tab" id="tab-b1b2" onclick="selectLevel('b1b2')">B1–B2</button>
+          <button type="button" class="level-tab" id="tab-c1c2" onclick="selectLevel('c1c2')">C1–C2</button>
+        </div>
+
+        <article class="syllabus-card" id="syllabusCard"></article>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" id="pricingTag"></span>
+          <h2 id="pricingTitle"></h2>
+          <p id="pricingDesc"></p>
+        </div>
+
+        <div class="pricing-note" id="pricingRegistrationBanner"></div>
+        <div class="pricing-grid" id="pricingGrid"></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag" id="contactTag"></span>
+          <h2 id="contactTitle"></h2>
+          <p id="contactDesc"></p>
+        </div>
+
+        <div class="contact-grid">
+          <form class="contact-form-card" id="inquiryForm" onsubmit="handleInquirySubmit(event)">
+            <div class="form-group">
+              <label for="studentName" id="lblName"></label>
+              <input type="text" id="studentName" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentEmail" id="lblEmail"></label>
+              <input type="email" id="studentEmail" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentPhone" id="lblPhone"></label>
+              <input type="tel" id="studentPhone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="studentLevel" id="lblLevel"></label>
+              <select id="studentLevel">
+                <option value="A1–A2">A1–A2</option>
+                <option value="B1–B2">B1–B2</option>
+                <option value="C1–C2">C1–C2</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="studentMessage" id="lblMessage"></label>
+              <textarea id="studentMessage" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBtn"></button>
+            <div class="form-feedback" id="formFeedback" style="display: none;"></div>
+          </form>
+
+          <aside class="contact-info-card">
+            <h3 id="contactCardTitle" style="font-size: 1.3rem; margin-bottom: 8px;"></h3>
+            <p id="contactCardDesc" style="color: var(--ink-muted); font-size: 0.93rem;"></p>
+
+            <ul class="contact-list">
+              <li class="contact-item">
+                <strong id="emailLabel"></strong>
+                <a href="mailto:voiceandvoicelanguagecenter@gmail.com">voiceandvoicelanguagecenter@gmail.com</a>
+              </li>
+
+              <li class="contact-item">
+                <strong id="igLabel"></strong>
+                <a href="https://www.instagram.com/Voz_and_voice/" target="_blank" rel="noopener noreferrer">@Voz_and_voice</a>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 6px;">
+          <<img src="c:\Users\amner\Desktop\voz&voice\Logo Vand V.jpg" alt="Voz & Voice" class="brand-img" />
+          <span class="brand-text">
+            <span class="brand-short">Voz &amp; Voice</span>
+            <span class="brand-full">Voz &amp; Voice Language Center</span>
+          </span>
+        </div>
+        <p class="footer-meta" id="footerTagline"></p>
+      </div>
+
+      <div class="footer-meta" id="footerContact"></div>
+    </div>
+  </footer>
+
+  <script>
+    const OFFICIAL_EMAIL = "voiceandvoicelanguagecenter@gmail.com";
+    const OFFICIAL_IG = "@Voz_and_voice";
+
+    const DATA = {
+      en: {
+        htmlLang: "en",
+        nav: {
+          why: "Speaking Day 1",
+          syllabus: "Syllabus",
+          pricing: "Rates",
+          contact: "Ask About Lessons",
+          cta: "Ask About Lessons"
+        },
+        hero: {
+          badge: "Voz & Voice Language Center (Voz & Voice)",
+          title: "Learn Real Spanish & Speak From Day One",
+          subtitle: "Friendly, structured, live Spanish lessons designed for English speakers—from your very first words to confident storytelling and public speaking.",
+          primaryCta: "Ask About Lessons",
+          secondaryCta: "Explore Spanish Syllabus",
+          modeHelper: "<strong>English Mode Active:</strong> You are viewing the full <strong>Spanish Program (A1–A2, B1–B2, C1–C2)</strong> and rates in English. Switch to <strong>ES</strong> at the top if you want to explore <strong>English classes in Spanish</strong>.",
+          cardTitle: "How We Start From Day One",
+          highlights: [
+            "<strong>Active speech from session one:</strong> No passive memorization of disconnected lists.",
+            "<strong>Clear 4-month modules:</strong> Structured live hours with step-by-step milestones.",
+            "<strong>Personal guidance &amp; feedback:</strong> Direct support through live sessions, practice, and forums."
+          ],
+          freeBanner: "Registration / Enrollment Fee: FREE — Start asking about upcoming spots anytime."
+        },
+        why: {
+          tag: "Our Approach",
+          title: "Why Speak From Day One?",
+          desc: "Language sticks when you use it in real situations. Every level in Voz & Voice moves you toward real communication with clarity and encouragement.",
+          cards: [
+            {
+              title: "Real Conversation First",
+              text: "Practice greetings, everyday routines, stories, and live presentations instead of getting stuck in dry drills."
+            },
+            {
+              title: "Structured Live Progression",
+              text: "Each module gives you clear weekly live hours, practical exercises, and concrete speaking milestones."
+            },
+            {
+              title: "Friendly &amp; Judgment-Free",
+              text: "Ask questions freely, experiment with new structures, and build confidence at a steady, supportive pace."
+            }
+          ],
+          gradualHtml: null
+        },
+        syllabus: {
+          tag: "Spanish Program (A1–C2)",
+          title: "Spanish Syllabus &amp; Roadmap",
+          desc: "Select a level tab below to see the structure, learning experience, and monthly milestones.",
+          tabs: {
+            a1a2: "A1–A2 · Solid Foundations",
+            b1b2: "B1–B2 · Fluency & Storytelling",
+            c1c2: "C1–C2 · Native Mastery & Immersion"
+          },
+          experienceHeading: "The Learning Experience",
+          roadmapHeading: "Syllabus &amp; Roadmap",
+          vocabHeading: null,
+          levels: {
+            a1a2: {
+              headline: "Stop memorizing random phrases. Build a rock-solid grammar foundation and speak real Spanish from day one.",
+              subheadline: "Base Mastery (Level A1-A2): Go from absolute zero to mastering essential grammar, everyday survival phrases, and core conversational structures in 4 months.",
+              chips: [
+                "4 hours/week (2 hrs/day, 2 days/week)",
+                "80 live hours per module (16 weeks total)",
+                "4 Months"
+              ],
+              experience: [
+                "<strong>Grammar Made Simple:</strong> Master core sentence structures without getting lost in overwhelming academic jargon.",
+                "<strong>Everyday Vocabulary:</strong> Learn the phrases native speakers actually use in restaurants, travel, shopping, and daily interactions.",
+                "<strong>Interactive Foundations:</strong> Dedicated Q&amp;A forums, structured writing exercises, and weekly listening drills to cement your understanding."
+              ],
+              roadmap: [
+                "<strong>Month 1: Sounding Natural &amp; Core Verbs</strong> — Spanish phonetics, natural greetings ('¿Qué tal?, Mucho gusto'), and mastering the core verbs Ser, Estar, and Tener.",
+                "<strong>Month 2: Daily Routines &amp; Essential Grammar</strong> — Present Tense (Presente de Indicativo), daily routines, ordering food ('Quiero...', 'Me gustaría...'), and asking for directions.",
+                "<strong>Month 3: The Past Tense Foundation</strong> — Unlocking the past with Pretérito Indefinido (Fui, Estuve, Hice) to talk about yesterday, past trips, and life events.",
+                "<strong>Month 4: Descriptions &amp; Real-World Integration</strong> — Combining Indefinido with Imperfecto to describe past experiences, express future intentions, and hold your first full 15-minute conversation."
+              ],
+              cta: "Build Your Foundation — Reserve Your Spot"
+            },
+            b1b2: {
+              headline: "You know the basics—now it's time to consolidate complex grammar, tell compelling stories, and speak with true authority.",
+              subheadline: "Conversational &amp; Narrative Mastery (Level B1-B2): Master the Subjunctive mood, deliver oral presentations, tell engaging stories (cuentos y narraciones), and lock in advanced Spanish grammar.",
+              chips: [
+                "4 hours/week (2 hrs/day, 2 days/week)",
+                "80 live hours per module (16 weeks per module)",
+                "B1 &amp; B2 Modules"
+              ],
+              experience: [
+                "<strong>Oral Presentations &amp; Expos:</strong> Prepare and deliver live oral presentations on cultural, social, and personal topics to build public speaking confidence in Spanish.",
+                "<strong>Storytelling &amp; Narrative Drills (Cuentos y Leyendas):</strong> Practice reading, analyzing, and telling complex stories, anecdotes, and short tales using rich descriptive language.",
+                "<strong>Grammar Consolidation:</strong> Eliminate lingering mistakes with targeted practice on tricky connectors, past tenses, and the Subjunctive mood.",
+                "<strong>Debate &amp; Discussion Forums:</strong> Participate in weekly voice-note forums debating current events, literature snippets, and opinion pieces."
+              ],
+              roadmap: [
+                "<strong>Months 1–2 (B1): The Subjunctive Core &amp; Narrative Basics</strong> — Unlocking the Present Subjunctive (WEIRDOS framework), story structure, and delivering your first 5-minute oral exposition.",
+                "<strong>Months 3–4 (B1): Complex Grammar &amp; Storytelling</strong> — Linking ideas with advanced connectors (Sin embargo, Por lo tanto), narrating short stories (cuentos), and group debate sessions.",
+                "<strong>Months 5–6 (B2): Advanced Tenses &amp; Cultural Expos</strong> — Imperfect Subjunctive ('Si fuera tú...'), regional idioms, and structured research on Spanish-speaking cultures.",
+                "<strong>Months 7–8 (B2): Grammar Mastery Capstone</strong> — Polishing formal vs. informal registers, mastering complex conditional scenarios, and delivering a 20-minute capstone presentation."
+              ],
+              cta: "Unlock B1-B2 Fluency — Apply Here"
+            },
+            c1c2: {
+              headline: "Forget textbooks, grammar drills, and fill-in-the-blank exercises. You are no longer a student—you are a fluent Spanish speaker.",
+              subheadline: "Mastery &amp; Complete Immersion (Level C1-C2): An elite 4-month experience designed exclusively for speaking, real-world execution, and high-stakes communication. Speak Spanish as naturally as you speak your language.",
+              chips: [
+                "5 consecutive hours/week (single high-intensity session/week)",
+                "100 live hours complete per module (16 weeks total)",
+                "4 Months"
+              ],
+              experience: [
+                "<strong>100% Speaking &amp; Execution:</strong> Throw away traditional workbooks. Every single session is designed around active speech, debate, and real-world projects.",
+                "<strong>Zero Fill-in-the-Blank Drills:</strong> No repetitive grammar exercises. You master complex structures organically through live conversation and debate.",
+                "<strong>Real Native Audience Exposure:</strong> You won't just talk to your teacher; you will present, host, and interact with native Spanish speakers in real-world settings.",
+                "<strong>Student-Hosted Public Webinars:</strong> You will host and present live webinars on specialized topics (culture, tech, economy, psychology) targeted directly at 100% native Spanish-speaking audiences.",
+                "<strong>Live Community Events &amp; Roundtables:</strong> Organize and lead virtual events, panel discussions, and interviews with guest speakers from Latin America and Spain.",
+                "<strong>Keynote Presentations &amp; Expos:</strong> Deliver professional-level keynote presentations on complex subjects, receiving feedback on tone, persuasion, and cultural nuances.",
+                "<strong>High-Level Forums &amp; Debate Hubs:</strong> Engage in voice-note debates, editorial writing, and critique forums analyzing real-world news, literature, and podcasts."
+              ],
+              roadmap: [
+                "<strong>Month 1: Advanced Nuance, Persuasion &amp; Rhetoric</strong> — Tone shifts, humor, irony, and persuasive public speaking. Milestone: Deliver a 10-minute keynote presentation to the class.",
+                "<strong>Month 2: Cultural Immersion &amp; Regional Mastery</strong> — Regional accents, local idioms, and slang from across Spain and Latin America. Milestone: Host a live round-table debate with native guest speakers.",
+                "<strong>Month 3: Professional &amp; Executive Execution</strong> — High-level negotiation tactics, formal register, and impromptu speaking. Milestone: Host a live 30-minute public webinar designed for native Spanish speakers.",
+                "<strong>Month 4: The C1-C2 Capstone — The Live Event</strong> — Polishing accent details, cadence, and native velocity. Milestone: Plan, market, and execute a live virtual event entirely in Spanish as the primary host."
+              ],
+              cta: "Ask About C1-C2 Immersion"
+            }
+          }
+        },
+        pricing: {
+          tag: "Spanish Program Rates",
+          title: "Transparent Course Rates &amp; Formats",
+          desc: "Each course module spans 4 months. Reach out to ask about schedules, availability, and which format fits you best.",
+          registrationBanner: "Registration Fee: FREE",
+          durationText: "Course Duration: 4 months per level",
+          cards: [
+            {
+              level: "A1 - A2 (Beginner)",
+              rates: [
+                { label: "Group Class", main: "$170.00 / month", sub: "4-Month Course Total: $680.00" },
+                { label: "Individual Class", main: "$250.00 / month", sub: "4-Month Course Total: $1000.00" }
+              ],
+              freeLabel: "Registration Fee: FREE"
+            },
+            {
+              level: "B1 - B2 (Intermediate)",
+              rates: [
+                { label: "Group Class", main: "$170.00 / month", sub: "4-Month Course Total: $680.00" },
+                { label: "Individual Class", main: "$250.00 / month", sub: "4-Month Course Total: $1000.00" }
+              ],
+              freeLabel: "Registration Fee: FREE"
+            },
+            {
+              level: "C1 - C2 (Advanced)",
+              rates: [
+                { label: "Group Class", main: "$300.00 / month", sub: "4-Month Course Total: $1,200.00" }
+              ],
+              freeLabel: "Registration Fee: FREE"
+            }
+          ],
+          cardCta: "Ask About This Level"
+        },
+        contact: {
+          tag: "Get in Touch",
+          title: "Have Questions? Ask About Lessons",
+          desc: "Curious about schedules, starting levels, or group vs. individual options? Send a question or reach out directly via email or Instagram.",
+          lblName: "Your Name",
+          phName: "Alex Rivera",
+          lblEmail: "Your Email",
+          phEmail: "alex@example.com",
+          lblPhone: "Your Phone Number",
+          phPhone: "+1 (555) 234-5678",
+          lblLevel: "Level of Interest",
+          lblMessage: "Your Question About Lessons",
+          phMessage: "Hi! I'd love to know more about upcoming Spanish classes and schedules...",
+          submitBtn: "Open Email With Your Question",
+          feedbackHtml: `<strong>Your email draft is ready!</strong> We opened your mail client addressed to <strong>${OFFICIAL_EMAIL}</strong>. You can also message us on Instagram at <strong>${OFFICIAL_IG}</strong>.`,
+          contactCardTitle: "Official Contact Channels",
+          contactCardDesc: "Connect directly with Voz & Voice Language Center:",
+          emailLabel: "Email",
+          igLabel: "Instagram"
+        },
+        footer: {
+          tagline: "Voz & Voice (Voz & Voice Language Center) — Speaking from day one.",
+          contactText: `Email: ${OFFICIAL_EMAIL} · Instagram: ${OFFICIAL_IG}`
+        }
+      },
+
+      es: {
+        htmlLang: "es",
+        nav: {
+          why: "Hablar desde el Día 1",
+          syllabus: "Temarios",
+          pricing: "Tarifas",
+          contact: "Pregunta por las lecciones",
+          cta: "Pregunta por las lecciones"
+        },
+        hero: {
+          badge: "Voz & Voice Language Center (Voz & Voice)",
+          title: "Aprende Inglés Real y Habla Desde el Día 1",
+          subtitle: "Un espacio cercano, claro y práctico para hispanohablantes que quieren construir bases sólidas, ganar fluidez y expresarse con seguridad en inglés.",
+          primaryCta: "Pregunta por las lecciones",
+          secondaryCta: "Ver temario de inglés",
+          modeHelper: "<strong>Modo Español activo:</strong> Estás viendo el <strong>Programa Integral de Inglés (A1–A2, B1–B2, C1–C2)</strong> y sus tarifas en español. Cambia a <strong>EN</strong> arriba si buscas el programa de <strong>Español para angloparlantes</strong>.",
+          cardTitle: "Cómo Trabajamos Desde el Día 1",
+          highlights: [
+            "<strong>Habla activa desde la primera sesión:</strong> Construye oraciones reales sin memorización pasiva.",
+            "<strong>Gramática progresiva y clara:</strong> Avanza paso a paso según tu nivel, con estructura y práctica.",
+            "<strong>Acompañamiento directo:</strong> Sesiones en vivo, ejercicios aplicados y guía cercana en cada etapa."
+          ],
+          freeBanner: "Matrícula / Inscripción Inicial: FREE (Gratis) — Escríbenos para resolver dudas o consultar cupos."
+        },
+        why: {
+          tag: "Metodología",
+          title: "¿Por Qué Hablar Desde el Día 1?",
+          desc: "Aprender inglés se vuelve mucho más natural cuando pasas de la teoría aislada a usar el idioma en situaciones reales desde el comienzo.",
+          cards: [
+            {
+              title: "Oraciones Reales Desde el Inicio",
+              text: "Desde los primeros pasos trabajas sonidos clave, saludos, rutinas y situaciones cotidianas útiles."
+            },
+            {
+              title: "Progresión Gradual y Ordenada",
+              text: "Cada etapa tiene metas claras, horas en vivo definidas y actividades enfocadas en la expresión oral."
+            },
+            {
+              title: "Ambiente Cercano y Sin Rodeos",
+              text: "Pregunta sin miedo, aclara tus dudas y avanza a un ritmo constante y motivador."
+            }
+          ],
+          gradualHtml: "<strong>Enfoque Metodológico de Gramática Gradual:</strong> <strong>Nivel A1–A2 (Cimientos Sólidos):</strong> Dominio del 70% de la gramática estructural y vocabulario esencial directo. · <strong>Nivel B1–B2 (Fluidez y Narrativa):</strong> B1 completa los tiempos complejos; B2 reduce la gramática al 15% (solo conectores y estructuras avanzadas) enfocándose en debate y narrativa. · <strong>Nivel C1–C2 (Dominio Nativo e Inmersión):</strong> 0% gramática explícita / 100% ejecución, retórica, presentaciones públicas e interacción nativa."
+        },
+        syllabus: {
+          tag: "Programa de Inglés (A1–C2)",
+          title: "Temario y Hoja de Ruta por Nivel",
+          desc: "Elige un nivel para revisar su estructura, hoja de ruta y núcleo de aprendizaje.",
+          tabs: {
+            a1a2: "A1–A2 · Cimientos Sólidos",
+            b1b2: "B1–B2 · Fluidez y Narrativa",
+            c1c2: "C1–C2 · Dominio Nativo e Inmersión"
+          },
+          experienceHeading: "Estructura y Enfoque del Nivel",
+          roadmapHeading: "Hoja de Ruta (Syllabus)",
+          vocabHeading: "Vocabulario Esencial A1 (Núcleo Léxico Fundamental)",
+          levels: {
+            a1a2: {
+              headline: "Nivel A1 - A2: Programa 'Cimientos Sólidos'",
+              subheadline: "Meta: Pasar de cero a dominar la estructura básica indispensable, sobrevivir en entornos cotidianos y construir oraciones reales sin memorización pasiva.",
+              chips: [
+                "4 horas semanales (2 hrs / 2 días)",
+                "Total: 80 horas en vivo (16 semanas / 4 meses)",
+                "4 Meses"
+              ],
+              experience: [
+                "<strong>Formato:</strong> 4 horas semanales (2 hrs / 2 días) | Total: 80 horas en vivo (16 semanas / 4 meses).",
+                "<strong>Gramática gradual:</strong> Dominio del 70% de la gramática estructural y vocabulario esencial directo.",
+                "<strong>Práctica cotidiana:</strong> Presentaciones, restaurantes, compras, precios, planes futuros, consejos y conversación fluida de 15 minutos."
+              ],
+              roadmap: [
+                "<strong>Mes 1: Fonética, Presentaciones y Verbos Nucleares</strong> — Gramática: Verbo To Be (afirmativo, negativo, preguntas), pronombres personales, artículos (a, an, the), demostrativos (this, that, these, those), posesivos. Enfoque Práctico: Sonidos clave del inglés, saludos formales e informales, presentarse y presentar a otros.",
+                "<strong>Mes 2: Rutinas Diarias y Expresión de Cantidades</strong> — Gramática: Present Simple (reglas de 3ra persona, auxiliares do/does), adverbios de frecuencia (always, never, often), Present Continuous, sustantivos contables e incontables (some, any, much, many). Enfoque Práctico: Describir un día típico, pedir comida en restaurantes, hacer compras y preguntar precios.",
+                "<strong>Mes 3: Dominio del Pasado y Comparaciones</strong> — Gramática: Past Simple (verbo was/were, verbos regulares e irregulares comunes, auxiliar did), adjetivos comparativos y superlativos (bigger, the most important). Enfoque Práctico: Contar eventos pasados, describir vacaciones, comparar ciudades y personas.",
+                "<strong>Mes 4: Futuro, Modales Básicos e Integración</strong> — Gramática: Futuro con be going to (planes) vs. will (decisiones espontáneas), verbos modales básicos (can, could, must, have to, should). Enfoque Práctico: Expresar planes futuros, dar consejos y sostener una conversación fluida de 15 minutos."
+              ],
+              vocab: [
+                {
+                  title: "A1 1. Greetings & Civility (Saludos y Cortesía)",
+                  items: "Greetings: Hello, Hi, Goodbye, Bye. Courtesy: Please, Thank you, Thanks, You're welcome, Excuse me, Sorry. Check-in: How are you?, I'm fine, Nice to meet you, See you later, and even more."
+                },
+                {
+                  title: "A1 2. Numbers, Time & Days (Números y Tiempo)",
+                  items: "Numbers: Cardinal (1-100), Ordinal (1st - 31st for dates). Days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday. Time: Today, Yesterday, Tomorrow, Morning, Afternoon, Night, and much more."
+                },
+                {
+                  title: "A1 3. Family & People (Familia y Personas)",
+                  items: "Core Family: Father/Dad, Mother/Mom, Brother, Sister, Son, Daughter. Extended: Husband, Wife, Grandfather, Grandmother, Friend, Neighbor. Descriptors: Man, Woman, Child, Boy, Girl, Person, People."
+                },
+                {
+                  title: "A1 4. Food & Dining (Comida y Bebida)",
+                  items: "Meals: Breakfast, Lunch, Dinner, Snack. Food: Bread, Cheese, Water, Coffee, Tea, Milk, Meat, Chicken, Rice, Fruit. Ordering: Menu, Bill/Check, Water, Table, I would like..., Can I have...?"
+                },
+                {
+                  title: "A1 5. House & Daily Objects (Casa u Objetos)",
+                  items: "Rooms: Kitchen, Bedroom, Bathroom, Living room, Garden, Office. Objects: Table, Chair, Bed, Door, Window, Phone, Computer, Book, Key."
+                },
+                {
+                  title: "A1 6. Core Verbs & Actions (Verbos Clave)",
+                  items: "Daily Verbs: Eat, Drink, Sleep, Work, Study, Live, Go, Come, Want, Like. Action Verbs: Read, Write, Speak, Listen, Buy, Pay, See, Look, Help."
+                }
+              ],
+              cta: "Pregunta por el Nivel A1–A2"
+            },
+            b1b2: {
+              headline: "Nivel B1 - B2: Programa 'Fluidez, Narrativa y Consolidación'",
+              subheadline: "Meta: Consolidar tiempos verbales complejos en B1, perfeccionar conectores y estilo indirecto en B2, e incrementar la participación oral mediante debates, análisis de textos y presentaciones estandarizadas.",
+              chips: [
+                "4 horas semanales (2 hrs / 2 días)",
+                "Total: 80 horas por subnivel (16 semanas cada uno)",
+                "B1 y B2"
+              ],
+              experience: [
+                "<strong>Formato:</strong> 4 horas semanales (2 hrs / 2 días) | Total: 80 horas por subnivel (16 semanas cada uno).",
+                "<strong>Gramática en B1 y B2:</strong> B1 completa los tiempos complejos; B2 reduce la gramática al 15% (solo conectores y estructuras avanzadas) enfocándose en debate y narrativa.",
+                "<strong>Práctica oral:</strong> Relatos breves, anécdotas, presentaciones orales, lectura y análisis de relatos cortos (short stories), debates, registros formales/informales, modismos regionales y foros de voz."
+              ],
+              roadmap: [
+                "<strong>Meses 1-2 (B1): Tiempos Compuestos y Contexto Narrativo</strong> — Gramática: Present Perfect Simple vs. Past Simple (uso de for, since, already, yet, ever), Past Continuous y Present Perfect Continuous. Práctica: Estructura de relatos breves, anécdotas personales y presentación oral inicial de 5 minutos.",
+                "<strong>Meses 3-4 (B1): Condicionales, Voz Pasiva y Conectores</strong> — Gramática: First & Second Conditionals, Passive Voice (presente y pasado), cláusulas relativas (who, which, that, where), conectores (however, although, therefore, in addition). Práctica: Lectura y análisis de relatos cortos (short stories), debates en grupo sobre temas de actualidad.",
+                "<strong>Meses 5-6 (B2): Hipótesis Pasadas e Inglés Indirecto</strong> — Gramática (Reducida a lo esencial): Third Conditional y condicionales mixtos, Reported Speech (estilo indirecto), selección clave de Phrasal Verbs contextuales. Práctica: Distinción de registros (formal vs. informal), modismos regionales y presentaciones sobre temas socio-culturales.",
+                "<strong>Meses 7-8 (B2): Modales Pasados y Proyecto Capstone</strong> — Gramática (Repaso aplicado): Modales de deducción pasada (must have, could have, should have), estructuras enfáticas (cleft sentences). Práctica: Argumentación persuasiva, defensa de puntos de vista en foros de voz y exposición final de 20 minutos."
+              ],
+              vocab: null,
+              cta: "Pregunta por el Nivel B1–B2"
+            },
+            c1c2: {
+              headline: "Nivel C1 - C2: Programa 'Dominio Nativo e Inmersión Absoluta'",
+              subheadline: "Meta: Cero libros de gramática y cero ejercicios de rellenar espacios. El estudiante opera a nivel profesional/ejecutivo, domina el lenguaje figurado y lidera espacios ante audiencias nativas.",
+              chips: [
+                "5 horas consecutivas semanales (1 sesión intensiva)",
+                "Total: 100 horas en vivo (16 semanas / 4 meses)",
+                "4 Meses"
+              ],
+              experience: [
+                "<strong>Formato:</strong> 5 horas consecutivas semanales (1 sesión intensiva) | Total: 100 horas en vivo (16 semanas / 4 meses).",
+                "<strong>0% gramática explícita / 100% ejecución:</strong> Retórica, presentaciones públicas, negociación, moderación, webinars e interacción nativa.",
+                "<strong>Hitos reales:</strong> Exposición tipo Keynote de 10 minutos, moderación de mesa redonda con invitados nativos, webinar público de 30 minutos y conducción de un evento virtual 100% en inglés."
+              ],
+              roadmap: [
+                "<strong>Mes 1: Retórica, Persuasión y Matices de Tono</strong> — Enfoque: Uso fluido de sarcasmo, ironía, metáforas avanzadas y discurso persuasivo. Hito: Exposición individual tipo Keynote de 10 minutos orientada a la persuasión e impacto.",
+                "<strong>Mes 2: Inmersión Cultural y Diversidad de Acentos</strong> — Enfoque: Dominio de modismos contemporáneos, variaciones dialectales (americano, británico, australiano) y referencias culturales implícitas. Hito: Moderación de una mesa redonda en vivo con la participación de invitados nativos.",
+                "<strong>Mes 3: Inglés Ejecutivo y Negociación de Alto Nivel</strong> — Enfoque: Técnicas de negociación formal, diplomacia del lenguaje, resolución de desacuerdos e improvisación (impromptu speaking). Hito: Organización e impartición de un webinar público de 30 minutos sobre un área temática especializada.",
+                "<strong>Mes 4: Proyecto Final C1-C2 - Evento en Vivo (Capstone Project)</strong> — Enfoque: Pulido fino de cadencia discursiva, velocidad nativa, pronunciación conectada (connected speech) y presencia escénica. Hito Final: Planificación, convocatoria y conducción de un evento virtual completo transmitido 100% en inglés."
+              ],
+              vocab: null,
+              cta: "Pregunta por el Nivel C1–C2"
+            }
+          }
+        },
+        pricing: {
+          tag: "Tarifas de Inglés",
+          title: "Estructura de Inversión y Formatos de Clase",
+          desc: "Consulta las tarifas mensuales y del programa completo de 4 meses según el nivel y modalidad.",
+          registrationBanner: "Matrícula / Inscripción Inicial: FREE (Pago único)",
+          durationText: "Duración del programa: 4 meses por nivel",
+          cards: [
+            {
+              level: "A1 - A2 (Principiante)",
+              rates: [
+                { label: "Clase Grupal", main: "$170.00 USD / mes", sub: "Total Programa (4 Meses): $680.00 USD" },
+                { label: "Clase Individual", main: "$250.00 USD / mes", sub: "Total Programa (4 Meses): $1,000.00 USD" }
+              ],
+              freeLabel: "Matrícula / Inscripción Inicial: FREE"
+            },
+            {
+              level: "B1 - B2 (Intermedio)",
+              rates: [
+                { label: "Clase Grupal", main: "$170.00 USD / mes", sub: "Total Programa (4 Meses): $680.00 USD" },
+                { label: "Clase Individual", main: "$250.00 USD / mes", sub: "Total Programa (4 Meses): $1,000.00 USD" }
+              ],
+              freeLabel: "Matrícula / Inscripción Inicial: FREE"
+            },
+            {
+              level: "C1-C2 (Avanzado / Inmersión)",
+              rates: [
+                { label: "Clase Grupal", main: "$300.00 USD / mes", sub: "Total Programa (4 Meses): $1,200.00 USD" },
+                { label: "Clase Individual", main: "$400.00 USD / mes", sub: "Total Programa (4 Meses): $1,600.00 USD" }
+              ],
+              freeLabel: "Matrícula / Inscripción Inicial: FREE"
+            }
+          ],
+          cardCta: "Consultar este nivel"
+        },
+        contact: {
+          tag: "Contacto",
+          title: "¿Tienes Dudas? Pregunta por las Lecciones",
+          desc: "Escríbenos para preguntar por horarios, niveles, modalidades o cómo empezar desde cero.",
+          lblName: "Tu nombre",
+          phName: "Camila Mendoza",
+          lblEmail: "Tu correo electrónico",
+          phEmail: "camila@ejemplo.com",
+          lblPhone: "Tu número de teléfono",
+          phPhone: "+504 9999-9999",
+          lblLevel: "Nivel de interés",
+          phMessage: "Hola, me gustaría consultar sobre las clases de inglés y los horarios disponibles...",
+          submitBtn: "Abrir correo con tu consulta",
+          feedbackHtml: `<strong>¡Tu borrador de correo está listo!</strong> Se abrió tu aplicación de correo dirigida a <strong>${OFFICIAL_EMAIL}</strong>. También puedes escribirnos por Instagram en <strong>${OFFICIAL_IG}</strong>.`,
+          contactCardTitle: "Canales Oficiales de Contacto",
+          contactCardDesc: "Comunícate directamente con Voz & Voice Language Center:",
+          emailLabel: "Correo electrónico",
+          igLabel: "Instagram"
+        },
+        footer: {
+          tagline: "Voz & Voice (Voz & Voice Language Center) — Hablando desde el día 1.",
+          contactText: `Correo: ${OFFICIAL_EMAIL} · Instagram: ${OFFICIAL_IG}`
+        }
+      }
+    };
+
+    let currentLang = "en";
+    let currentLevel = "a1a2";
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const d = DATA[lang];
+      document.documentElement.lang = d.htmlLang;
+
+      document.getElementById("btnES").classList.toggle("active", lang === "es");
+      document.getElementById("btnEN").classList.toggle("active", lang === "en");
+
+      document.getElementById("navWhy").textContent = d.nav.why;
+      document.getElementById("navSyllabus").textContent = d.nav.syllabus;
+      document.getElementById("navPricing").textContent = d.nav.pricing;
+      document.getElementById("navContact").textContent = d.nav.contact;
+      document.getElementById("navCtaBtn").textContent = d.nav.cta;
+
+      document.getElementById("heroBadge").textContent = d.hero.badge;
+      document.getElementById("heroTitle").textContent = d.hero.title;
+      document.getElementById("heroSubtitle").textContent = d.hero.subtitle;
+      document.getElementById("heroPrimaryCta").textContent = d.hero.primaryCta;
+      document.getElementById("heroSecondaryCta").textContent = d.hero.secondaryCta;
+      document.getElementById("modeHelperBox").innerHTML = d.hero.modeHelper;
+
+      document.getElementById("heroCardTitle").textContent = d.hero.cardTitle;
+      document.getElementById("heroHighlights").innerHTML = d.hero.highlights
+        .map((item) => `<li><span class="dot-check">✓</span><span>${item}</span></li>`)
+        .join("");
+      document.getElementById("heroFreeBanner").textContent = d.hero.freeBanner;
+
+      document.getElementById("whyTag").textContent = d.why.tag;
+      document.getElementById("whyTitle").textContent = d.why.title;
+      document.getElementById("whyDesc").textContent = d.why.desc;
+      document.getElementById("benefitsGrid").innerHTML = d.why.cards
+        .map((c) => `<div class="benefit-card"><h3>${c.title}</h3><p>${c.text}</p></div>`)
+        .join("");
+
+      const gradualEl = document.getElementById("gradualStrip");
+      if (d.why.gradualHtml) {
+        gradualEl.style.display = "grid";
+        gradualEl.innerHTML = d.why.gradualHtml;
+      } else {
+        gradualEl.style.display = "none";
+      }
+
+      document.getElementById("syllabusTag").textContent = d.syllabus.tag;
+      document.getElementById("syllabusTitle").innerHTML = d.syllabus.title;
+      document.getElementById("syllabusDesc").textContent = d.syllabus.desc;
+      document.getElementById("tab-a1a2").textContent = d.syllabus.tabs.a1a2;
+      document.getElementById("tab-b1b2").textContent = d.syllabus.tabs.b1b2;
+      document.getElementById("tab-c1c2").textContent = d.syllabus.tabs.c1c2;
+
+      renderSyllabusCard();
+      renderPricing();
+      renderContactAndFooter();
+    }
+
+    function selectLevel(levelKey) {
+      currentLevel = levelKey;
+      ["a1a2", "b1b2", "c1c2"].forEach((k) => {
+        document.getElementById(`tab-${k}`).classList.toggle("active", k === levelKey);
+      });
+      renderSyllabusCard();
+    }
+
+    function renderSyllabusCard() {
+      const d = DATA[currentLang];
+      const lvl = d.syllabus.levels[currentLevel];
+
+      const chipsHtml = lvl.chips
+        .map((chip) => `<span class="meta-chip">${chip}</span>`)
+        .join("");
+
+      const expHtml = lvl.experience
+        .map((item) => `<li>${item}</li>`)
+        .join("");
+
+      const roadHtml = lvl.roadmap
+        .map((item) => `<li>${item}</li>`)
+        .join("");
+
+      let vocabHtml = "";
+      if (lvl.vocab && lvl.vocab.length > 0 && d.syllabus.vocabHeading) {
+        vocabHtml = `
+          <div class="vocab-box">
+            <h4>${d.syllabus.vocabHeading}</h4>
+            <div class="vocab-grid">
+              ${lvl.vocab
+                .map((v) => `<div class="vocab-item"><strong>${v.title}</strong><span>${v.items}</span></div>`)
+                .join("")}
+            </div>
+          </div>
+        `;
+      }
+
+      document.getElementById("syllabusCard").innerHTML = `
+        <div class="syllabus-top">
+          <h3>${lvl.headline}</h3>
+          <p class="syllabus-sub">${lvl.subheadline}</p>
+          <div class="meta-bar">${chipsHtml}</div>
+        </div>
+
+        <div class="syllabus-grid">
+          <div class="sub-panel">
+            <h4>${d.syllabus.experienceHeading}</h4>
+            <ul class="clean-list">${expHtml}</ul>
+          </div>
+          <div class="sub-panel">
+            <h4>${d.syllabus.roadmapHeading}</h4>
+            <ul class="clean-list">${roadHtml}</ul>
+          </div>
+        </div>
+
+        ${vocabHtml}
+
+        <div class="syllabus-footer">
+          <span style="font-size: 0.9rem; color: var(--ink-muted);">Voz &amp; Voice Language Center</span>
+          <a href="#contact" class="btn btn-primary" onclick="prefillLevel('${currentLevel}')">${lvl.cta}</a>
+        </div>
+      `;
+    }
+
+    function prefillLevel(levelKey) {
+      const mapVal = { a1a2: "A1–A2", b1b2: "B1–B2", c1c2: "C1–C2" };
+      const sel = document.getElementById("studentLevel");
+      if (sel && mapVal[levelKey]) {
+        sel.value = mapVal[levelKey];
+      }
+    }
+
+    function renderPricing() {
+      const d = DATA[currentLang];
+      document.getElementById("pricingTag").textContent = d.pricing.tag;
+      document.getElementById("pricingTitle").innerHTML = d.pricing.title;
+      document.getElementById("pricingDesc").textContent = d.pricing.desc;
+      document.getElementById("pricingRegistrationBanner").textContent = d.pricing.registrationBanner;
+
+      document.getElementById("pricingGrid").innerHTML = d.pricing.cards
+        .map((card, idx) => {
+          const levelMap = ["a1a2", "b1b2", "c1c2"];
+          const ratesHtml = card.rates
+            .map(
+              (r) => `
+                <div class="rate-box">
+                  <div class="rate-label">${r.label}</div>
+                  <div class="rate-main">${r.main}</div>
+                  <div class="rate-sub">${r.sub}</div>
+                </div>
+              `
+            )
+            .join("");
+
+          return `
+            <div class="price-card">
+              <div>
+                <h3>${card.level}</h3>
+                <p class="price-duration">${d.pricing.durationText}</p>
+                ${ratesHtml}
+                <span class="free-tag">${card.freeLabel}</span>
+              </div>
+              <a href="#contact" class="btn btn-secondary" onclick="prefillLevel('${levelMap[idx]}')">${d.pricing.cardCta}</a>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    function renderContactAndFooter() {
+      const d = DATA[currentLang];
+      document.getElementById("contactTag").textContent = d.contact.tag;
+      document.getElementById("contactTitle").textContent = d.contact.title;
+      document.getElementById("contactDesc").textContent = d.contact.desc;
+
+      document.getElementById("lblName").textContent = d.contact.lblName;
+      document.getElementById("studentName").placeholder = d.contact.phName;
+      document.getElementById("lblEmail").textContent = d.contact.lblEmail;
+      document.getElementById("studentEmail").placeholder = d.contact.phEmail;
+      document.getElementById("lblPhone").textContent = d.contact.lblPhone;
+      document.getElementById("studentPhone").placeholder = d.contact.phPhone;
+      document.getElementById("lblLevel").textContent = d.contact.lblLevel;
+      document.getElementById("lblMessage").textContent = d.contact.lblMessage;
+      document.getElementById("studentMessage").placeholder = d.contact.phMessage;
+      document.getElementById("submitBtn").textContent = d.contact.submitBtn;
+
+      document.getElementById("contactCardTitle").textContent = d.contact.contactCardTitle;
+      document.getElementById("contactCardDesc").textContent = d.contact.contactCardDesc;
+      document.getElementById("emailLabel").textContent = d.contact.emailLabel;
+      document.getElementById("igLabel").textContent = d.contact.igLabel;
+
+      document.getElementById("footerTagline").textContent = d.footer.tagline;
+      document.getElementById("footerContact").textContent = d.footer.contactText;
+    }
+
+    async function handleInquirySubmit(event) {
+  event.preventDefault();
+  const NUEVA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYwhVcdohD8fzRG5cPGGh7AnULYFYBJl48IGadhg5402BIt8vGPLF5NVSUEMvN5bc4/exec";
+  const d = DATA[currentLang];
+  const name = document.getElementById("studentName").value.trim();
+  const email = document.getElementById("studentEmail").value.trim();
+  const phoneEl = document.getElementById("studentPhone");
+  const phone = phoneEl ? phoneEl.value.trim() : "";
+  const level = document.getElementById("studentLevel").value;
+  const msg = document.getElementById("studentMessage").value.trim();
+  const fb = document.getElementById("formFeedback");
+
+  try {
+    await fetch(NUEVA_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ name, email, phone, level, question: msg })
+    });
+  } catch (err) {
+    console.error(err);
+  }
+
+  event.target.reset();
+
+  const confirmedMsg = currentLang === "en"
+    ? "Confirmed! Your information has been sent."
+    : "¡Confirmado! Tu información ha sido enviada.";
+
+  fb.style.display = "block";
+  fb.innerHTML = `
+    <strong>${confirmedMsg}</strong>
+    <div style="margin-top: 8px; font-size: 0.88rem; color: var(--ink-muted);">
+      ${d.contact.feedbackHtml}
+    </div>
+  `;
+}
+
+    setLanguage("en");
+  </script>
+</body>
+</html>
+```[cite: 5]
