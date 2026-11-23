@@ -746,9 +746,6 @@
       .nav-links {
         display: none;
       }
-      .nav-links {
-        display: none;
-      }
     }
 
     .brand-img {
@@ -924,7 +921,7 @@
     <div class="container footer-grid">
       <div>
         <div class="brand-logo" style="margin-bottom: 6px;">
-          <<img src="./Logo%20Vand%20V.jpg" alt="Voz & Voice" class="brand-img" />
+          <img src="./Logo%20Vand%20V.jpg" alt="Voz & Voice" class="brand-img" />
           <span class="brand-text">
             <span class="brand-short">Voz &amp; Voice</span>
             <span class="brand-full">Voz &amp; Voice Language Center</span>
@@ -1532,45 +1529,44 @@
     }
 
     async function handleInquirySubmit(event) {
-  event.preventDefault();
-  const NUEVA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYwhVcdohD8fzRG5cPGGh7AnULYFYBJl48IGadhg5402BIt8vGPLF5NVSUEMvN5bc4/exec";
-  const d = DATA[currentLang];
-  const name = document.getElementById("studentName").value.trim();
-  const email = document.getElementById("studentEmail").value.trim();
-  const phoneEl = document.getElementById("studentPhone");
-  const phone = phoneEl ? phoneEl.value.trim() : "";
-  const level = document.getElementById("studentLevel").value;
-  const msg = document.getElementById("studentMessage").value.trim();
-  const fb = document.getElementById("formFeedback");
+      event.preventDefault();
+      const NUEVA_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYwhVcdohD8fzRG5cPGGh7AnULYFYBJl48IGadhg5402BIt8vGPLF5NVSUEMvN5bc4/exec";
+      const d = DATA[currentLang];
+      const name = document.getElementById("studentName").value.trim();
+      const email = document.getElementById("studentEmail").value.trim();
+      const phoneEl = document.getElementById("studentPhone");
+      const phone = phoneEl ? phoneEl.value.trim() : "";
+      const level = document.getElementById("studentLevel").value;
+      const msg = document.getElementById("studentMessage").value.trim();
+      const fb = document.getElementById("formFeedback");
 
-  try {
-    await fetch(NUEVA_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ name, email, phone, level, question: msg })
-    });
-  } catch (err) {
-    console.error(err);
-  }
+      try {
+        await fetch(NUEVA_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ name, email, phone, level, question: msg })
+        });
+      } catch (err) {
+        console.error(err);
+      }
 
-  event.target.reset();
+      event.target.reset();
 
-  const confirmedMsg = currentLang === "en"
-    ? "Confirmed! Your information has been sent."
-    : "¡Confirmado! Tu información ha sido enviada.";
+      const confirmedMsg = currentLang === "en"
+        ? "Confirmed! Your information has been sent."
+        : "¡Confirmado! Tu información ha sido enviada.";
 
-  fb.style.display = "block";
-  fb.innerHTML = `
-    <strong>${confirmedMsg}</strong>
-    <div style="margin-top: 8px; font-size: 0.88rem; color: var(--ink-muted);">
-      ${d.contact.feedbackHtml}
-    </div>
-  `;
-}
+      fb.style.display = "block";
+      fb.innerHTML = `
+        <strong>${confirmedMsg}</strong>
+        <div style="margin-top: 8px; font-size: 0.88rem; color: var(--ink-muted);">
+          ${d.contact.feedbackHtml}
+        </div>
+      `;
+    }
 
     setLanguage("en");
   </script>
 </body>
 </html>
-```[cite: 5]
